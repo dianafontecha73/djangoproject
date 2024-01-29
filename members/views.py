@@ -19,3 +19,19 @@ def details(request, id):
         'mymembers': mymember,
     }
     return HttpResponse(template.render(context, request))
+
+def main(request):
+    template = loader.get_template('main.html')
+    return HttpResponse(template.render())
+
+def testing(request):
+    mymembers = Member.objects.all().values()
+    template = loader.get_template('template.html')
+    context = {
+        #'mymembers': mymembers,
+        #'firstname': 'Jana',
+        # 'x' : ['Manzana', 'Banana', 'Cereza'],
+        # 'y' : ['Manzana', 'Banana', 'Cereza'],
+        'coches' : [{"tipo": "Toyota", "modelo": "Yaris", "año": 2012}, {"tipo": "Renault", "modelo": "Dacia", "año": 2018}],
+    }
+    return HttpResponse(template.render(context, request))

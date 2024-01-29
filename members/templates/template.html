@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+<ul>
+    {% for x in mymembers %}
+        <li>{{ x.firstname }}</li>
+    {% endfor %}
+</ul>
+
+{% with firstname="Jana" %}
+<h1>Hola {{ firstname }}, cómo estás?</h1>
+{% endwith %}
+
+{% if greeting == 1 %}
+    <h1>Hola</h1>
+{% elif greeting == 2  and day == "Viernes" %}
+    <h1>Bienvenido y feliz fin de semana</h1>
+{% else %}
+    <h1>Hasta Pronto</h1>
+{% endif %}
+
+{% for x in fruits %}
+    <h1>{{ x }}</h1>
+{% endfor %}
+
+<p>En views.py puedes ver la variable fruit</p>
+
+<p>En template.html puedes ver cómo se usa una variable</p>
+
+<p>Esta es la diferencia entre  ==  y el  is</p>
+{% if x is y %}
+    <h1>YES</h1>
+{% else %}
+    <h1>NO</h1>
+{%endif%}
+
+<p>El uso del bucle for en una lista de diccionarios</p>
+
+{% for x in coches %}
+    <h1>{{ x.tipo }}</h1>
+    <p>{{ x.modelo }}</p>
+    <p>{{ x.año }}</p>
+{% endfor %}
+
+<p>Ahora veremos la manera de usar un footer con Django</p>
+<h1>Hola</h1>
+<p>Este es un ejemplo de footer en plantilla</p>
+
+{% include 'footer.html' %}
+
+</body>
+
+</html>
